@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #30398E;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -63,6 +63,7 @@
             }
         </style>
     </head>
+
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -79,22 +80,22 @@
                 </div>
             @endif
 
+            @php( $base_url = View::getSection('base_url') ?? config('adminlte.base_url', '/') )
+
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <a href="{{ $base_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="links" style="color: #30398E;">
+                    <a href="https://www.femto15.com/about-us" target="_blank">About us</a>
+                    <a href="https://www.femto15.com/portfolio" target="_blank">Portfolio</a>
+                    <a href="https://www.femto15.com/blog" target="_blank">Blog</a>
+                    <a href="https://www.femto15.com/contact-us" target="_blank">Contact us</a>
                 </div>
+
             </div>
         </div>
     </body>
+
 </html>

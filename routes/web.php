@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.admin-panel');
+    // return view('layouts.admin-panel');
+    return view('welcome');
+    // return view('home');
 });
+
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
+
+
+Route::get('/admin/users', function() {
+    return view('users');
+})->name('admin-users')->middleware('auth');
+
+
