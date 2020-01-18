@@ -11,17 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    // return view('layouts.admin-panel');
-    return view('welcome');
-    // return view('home');
-});
+Route::get('/', function () { return view('welcome'); });
 
 Auth::routes();
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
+Route::get('/home', 'PagesController@dashboard')->name('home')->middleware('auth');
+Route::post('/subscribe', 'PaymentsController@subscribe')->name('subscription')->middleware('auth');
 
 
 Route::get('/admin/users', function() {

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'FEMTO15',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -199,9 +199,15 @@ return [
         // ],
         // 'MANAGE WEBSITE',
         [
+            'text' => 'Dashboard',
+            'url'  => 'home',
+            'icon' => 'fas fa-users',
+        ],
+        [
             'text' => 'Users',
             'url'  => 'admin/users',
             'icon' => 'fas fa-users',
+            'can' => 'view-users',
         ],
         // [
         //     'text' => 'change_password',
