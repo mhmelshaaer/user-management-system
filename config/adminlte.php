@@ -179,11 +179,11 @@ return [
         //     'search' => false,
         //     'topnav' => false,
         // ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
         // [
         //     'text'        => 'pages',
         //     'url'         => 'admin/pages',
@@ -207,8 +207,20 @@ return [
             'text' => 'Users',
             'url'  => 'admin/users',
             'icon' => 'fas fa-users',
-            'can' => 'view-users',
+            'can' => 'admin',
         ],
+        // [
+        //     'text' => 'Permissions',
+        //     'url'  => 'admin/permissions',
+        //     'icon' => 'fas fa-users',
+        //     'can' => 'admin',
+        // ],
+        // [
+        //     'text' => 'Roles',
+        //     'url'  => 'admin/roles',
+        //     'icon' => 'fas fa-users',
+        //     'can' => 'admin',
+        // ],
         // [
         //     'text' => 'change_password',
         //     'url'  => 'admin/settings',

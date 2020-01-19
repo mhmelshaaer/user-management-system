@@ -15,12 +15,21 @@ Route::get('/', function () { return view('welcome'); });
 
 Auth::routes();
 
-Route::get('/home', 'PagesController@dashboard')->name('home')->middleware('auth');
-Route::post('/subscribe', 'PaymentsController@subscribe')->name('subscription')->middleware('auth');
+Route::group(['middleware' => ['permission:admin', 'auth']], function () {
+
+    Route::get('/admin/users', 'PagesController@users')->name('admin-users');
+    Route::get('/home', 'PagesController@dashboard')->name('home');
+    Route::post('/subscribe', 'PaymentsController@subscribe')->name('subscription');
+
+});
 
 
-Route::get('/admin/users', function() {
-    return view('users');
-})->name('admin-users')->middleware('auth');
+// Route::get('/admin/permissions', function() {
+//     return view('permissions');
+// })->name('admin-permissions')->middleware('auth');
+
+// Route::get('/admin/roles', function() {
+//     return view('roles');
+// })->name('admin-roles')->middleware('auth');
 
 

@@ -8,15 +8,24 @@ class PagesController extends Controller
 {
     public function dashboard(Request $request)
     {
-        if (auth()->user()->hasPaymentMethod())
+        if(!auth()->user()->hasPermissionTo('admin'))
         {
-            return view('home', [
-                'user' => auth()->user()
-            ]);
+            if (!auth()->user()->hasPaymentMethod())
+            {
+                return view('subscribe', [
+                    'intent' => auth()->user()->createSetupIntent()
+                ]);
+            }
         }
 
-        return view('subscribe', [
-            'intent' => auth()->user()->createSetupIntent()
+        return view('home', [
+            'user' => auth()->user()
         ]);
+
+    }
+
+    public function users(Request $request)
+    {
+        return view('users');
     }
 }

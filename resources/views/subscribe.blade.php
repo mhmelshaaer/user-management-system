@@ -13,10 +13,59 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{asset('js/stripe-base.js')}}"></script>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            position: inherit;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .links > a {
+            color: #30398E;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+    </style>
+
 </head>
 <body>
 
-    {{-- <input id="card-holder-name" type="text"> --}}
+    <nav class="top-right links">
+
+        @auth
+
+            <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();">Logout
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </a>
+
+        @endauth
+    </nav>
 
     <div class="globalContent">
 
