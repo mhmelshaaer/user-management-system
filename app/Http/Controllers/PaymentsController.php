@@ -10,11 +10,13 @@ class PaymentsController extends Controller
 {
     public function subscribe(SubscribeRequest $request)
     {
+        if (!auth()->user()->hasPaymentMethod())
+        {
+            auth()->user()
+                    ->newSubscription('main', $request->subscription_plan)
+                    ->create($request->payment_method);
+        }
 
-        auth()->user()
-                ->newSubscription('main', $request->subscription_plan)
-                ->create($request->payment_method);
-
-        return $request;
+        return  redirect('/home');
     }
 }

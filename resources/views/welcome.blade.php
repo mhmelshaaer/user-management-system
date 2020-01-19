@@ -70,10 +70,13 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Dashboard</a>
-                        <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();">Logout
+                        <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();">
+
+                            Logout
                             <form id="logout-form" action="/logout" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
+
                         </a>
                     @else
                         <a href="{{ route('login') }}">Login</a>

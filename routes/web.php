@@ -12,12 +12,26 @@
 */
 
 Route::get('/', function () { return view('welcome'); });
+Route::get('social-login/{provider}', 'Auth\LoginController@redirectToProvider')->name('social-login-redirect');
+Route::get('social-login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('social-login-callback');
+
 
 Auth::routes();
 
+/**
+ * User-authenticated and Admin privileged routes
+ */
 Route::group(['middleware' => ['permission:admin', 'auth']], function () {
 
     Route::get('/admin/users', 'PagesController@users')->name('admin-users');
+
+});
+
+/**
+ * User-authenticated routes
+ */
+Route::group(['middleware' => ['auth']], function () {
+
     Route::get('/home', 'PagesController@dashboard')->name('home');
     Route::post('/subscribe', 'PaymentsController@subscribe')->name('subscription');
 

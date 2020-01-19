@@ -15,6 +15,25 @@
             border-color: #30398E;
         }
 
+        .social-login {
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        #google-anchor {
+            background: #DC4C40;
+            color: #fff;
+        }
+
+        #facebook-anchor {
+            background: #4267B2;
+            color: #fff;
+        }
+
     </style>
 
 @stop
@@ -103,6 +122,27 @@
                 @endif
             </div>
         </div>
+        <!-- /card -->
+
+        <div class="card">
+            <div class="card-body login-card-body">
+
+	            <p class="login-box-msg">Or</p>
+
+                <a id="google-anchor" class="social-login" href="javascript:void(0)" onclick="document.getElementById('social-login-google').submit();">
+                    Login with google
+                    <form id="social-login-google" action="{{route('social-login-redirect', 'google')}}" method="GET"></form>
+                </a>
+
+                <a id="facebook-anchor" class="social-login" href="javascript:void(0)" onclick="document.getElementById('social-login-facebook').submit();">
+                    Login with facebook
+                    <form id="social-login-facebook" action="{{route('social-login-redirect', 'facebook')}}" method="GET"></form>
+                </a>
+
+            </div>
+        </div>
+        <!-- /card -->
+
     </div>
 @stop
 
