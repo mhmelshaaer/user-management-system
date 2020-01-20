@@ -70,6 +70,9 @@ class LoginController extends Controller
                 'email' => $user->getEmail(),
                 'password' => Hash::make(Str::random(10)),
             ]);
+
+            $oldUser->email_verified_at = now();
+            $oldUser->save();
         }
 
         auth()->login($oldUser);

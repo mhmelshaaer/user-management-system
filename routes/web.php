@@ -16,13 +16,14 @@ Route::get('social-login/{provider}', 'Auth\LoginController@redirectToProvider')
 Route::get('social-login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('social-login-callback');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 /**
  * User-authenticated and Admin privileged routes
  */
 Route::group(['middleware' => ['permission:admin', 'auth']], function () {
 
+    Route::get('/ajax', 'DatatablesController@getUsers')->name('users.datatable');
     Route::get('/admin/users', 'PagesController@users')->name('admin-users');
     Route::get('/admin/user/{id}', 'UsersController@editUser')->name('user.edit');
     Route::get('/admin/user/delete/{id}', 'UsersController@deleteUser')->name('user.delete');
@@ -36,8 +37,7 @@ Route::group(['middleware' => ['permission:admin', 'auth']], function () {
  */
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/home', 'PagesController@dashboard')->name('home');
-    Route::get('/ajax', 'DatatablesController@getUsers')->name('users.datatable');
+    Route::get('/home', 'PagesController@dashboard')->name('home')->middleware('verified');
     Route::post('/subscribe', 'PaymentsController@subscribe')->name('subscription');
 
 });
