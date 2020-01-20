@@ -92,16 +92,11 @@
                         ajax: "{!! route('users.datatable') !!}",
                         columns: [
                             // {data: 'id', name: 'id'},
-                            {data: 'name', name: 'name'},
-                            {data: 'email', name: 'email'},
-                            {data: 'DT_RowData.sub_plan', name: 'sub_plan'},
-                            {data: 'DT_RowData.status', name: 'deactivated'},
-                            {
-                                'data'          : 'action',
-                                'name'          : 'action',
-                                searchable      : false,
-                                orderable: false
-                            }
+                            {data: 'name', name: 'name', orderable: false},
+                            {data: 'email', name: 'email', orderable: false},
+                            {data: 'DT_RowData.sub_plan', name: 'sub_plan', searchable: false, orderable: false},
+                            {data: 'DT_RowData.status', name: 'deactivated', searchable: false, orderable: false},
+                            {'data': 'action', 'name': 'action', searchable: false, orderable: false}
                         ]
 
                     }

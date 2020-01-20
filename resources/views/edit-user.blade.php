@@ -38,7 +38,9 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="/admin/users" class="btn btn-default">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+
                     </form>
                 </div><!-- /.card-body -->
             </div><!-- /.card -->
