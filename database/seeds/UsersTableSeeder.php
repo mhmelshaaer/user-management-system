@@ -21,5 +21,8 @@ class UsersTableSeeder extends Seeder
 
         $user = User::where('email', 'admin@admin.com')->first();
         $user->givePermissionTo('admin');
+
+        factory(App\User::class, 100)->create();
+
     }
 }
