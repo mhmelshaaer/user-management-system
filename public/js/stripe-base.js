@@ -122,12 +122,15 @@ function registerElements(elements, exampleName) {
 
         if (error) {
 
+            console.log(error);
+
             // Stop loading!
             example.classList.remove('submitting');
 
             // Otherwise, un-disable inputs.
             enableInputs();
-            console.log(error);
+            form.querySelector('.error').classList.add('visible');
+            form.querySelector('.error').querySelector('.message').innerText = "We are unable to authenticate your payment method. Please double check you credentials";
 
         } else {
 

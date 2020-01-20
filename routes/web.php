@@ -41,14 +41,3 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/subscribe', 'PaymentsController@subscribe')->name('subscription');
 
 });
-
-
-// Route::get('/admin/permissions', function() {
-//     return view('permissions');
-// })->name('admin-permissions')->middleware('auth');
-
-// Route::get('/admin/roles', function() {
-//     return view('roles');
-// })->name('admin-roles')->middleware('auth');
-
-

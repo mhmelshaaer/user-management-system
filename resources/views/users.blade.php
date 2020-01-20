@@ -22,9 +22,10 @@
                         <table id="users-table" class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
-                                    {{-- <th scope="col">#</th> --}}
+
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
+                                    <th scope="col">Plan</th>
                                     <th scope="col">User status</th>
                                     <th scope="col">Actions</th>
 
@@ -93,6 +94,7 @@
                             // {data: 'id', name: 'id'},
                             {data: 'name', name: 'name'},
                             {data: 'email', name: 'email'},
+                            {data: 'DT_RowData.sub_plan', name: 'sub_plan'},
                             {data: 'DT_RowData.status', name: 'deactivated'},
                             {
                                 'data'          : 'action',

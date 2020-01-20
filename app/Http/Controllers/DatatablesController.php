@@ -19,6 +19,15 @@ class DatatablesController extends Controller
                     return $user->deactivated?
                                 'deactivated':
                                 'active';
+                },
+                'sub_plan' => function($user) {
+
+                    if ($user->hasPaymentMethod())
+                    {
+                        return $user->subscription('main')->stripe_plan.'/'.$user->subscription('main')->stripe_status;
+                    }
+                    return 'no plan';
+
                 }
             ])
             ->addColumn('action', function ($user) {

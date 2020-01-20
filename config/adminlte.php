@@ -201,7 +201,7 @@ return [
         [
             'text' => 'Dashboard',
             'url'  => 'home',
-            'icon' => 'fas fa-users',
+            'icon' => 'fas fa-chart-line',
         ],
         [
             'text' => 'Users',
