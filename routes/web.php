@@ -24,6 +24,10 @@ Auth::routes();
 Route::group(['middleware' => ['permission:admin', 'auth']], function () {
 
     Route::get('/admin/users', 'PagesController@users')->name('admin-users');
+    Route::get('/admin/user/{id}', 'UsersController@editUser')->name('user.edit');
+    Route::get('/admin/user/delete/{id}', 'UsersController@deleteUser')->name('user.delete');
+
+    Route::post('/admin/user', 'UsersController@updateUser')->name('user.update');
 
 });
 
@@ -33,6 +37,7 @@ Route::group(['middleware' => ['permission:admin', 'auth']], function () {
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home', 'PagesController@dashboard')->name('home');
+    Route::get('/ajax', 'DatatablesController@getUsers')->name('users.datatable');
     Route::post('/subscribe', 'PaymentsController@subscribe')->name('subscription');
 
 });
