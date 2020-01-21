@@ -1,4 +1,4 @@
-@extends('page')
+@extends('adminlte::page')
 
 @section('title', 'FEMTO15')
 
